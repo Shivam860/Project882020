@@ -19,6 +19,10 @@ namespace Project882020
             {
                 BindCourse();
                 BindCountry();
+                ddlstate.Enabled = false;
+                ddlstate.Items.Insert(0, new ListItem("--Select--", "0"));
+                ddlcity.Enabled = false;
+                ddlcity.Items.Insert(0, new ListItem("--Select--", "0"));
                 BindUser();
             }
         }
@@ -68,7 +72,26 @@ namespace Project882020
             ddlstate.DataTextField = "state_name";
             ddlstate.DataSource = dt;
             ddlstate.DataBind();
-            ddlstate.Items.Insert(0, new ListItem("--Select--", "0"));
+            ddlstate.Items.Insert(0, new ListItem("--Select", "0"));
+
+
+        }
+
+        public void BindCity()
+        {
+            con.Open();
+            SqlCommand com = new SqlCommand("Select * from tblcity where state_id='" + ddlstate.SelectedValue + "'", con);
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            com.ExecuteNonQuery();
+            con.Close();
+            ddlcity.DataValueField = "city_id";
+            ddlcity.DataTextField = "city_name";
+            ddlcity.DataSource = dt;
+            ddlcity.DataBind();
+            ddlcity.Items.Insert(0,  new ListItem("--Select","0"));
+
         }
         public void clear()
         {
@@ -78,6 +101,9 @@ namespace Project882020
             ddlcourse.SelectedValue = "0";
             ddlcountry.SelectedValue = "0";
             ddlstate.SelectedValue = "0";
+            ddlstate.Enabled = false;
+            ddlcity.SelectedValue = "0";
+            ddlcity.Enabled = false;
             textpass.Text = "";
             btn_submit.Text = "Submit";
         }
@@ -111,6 +137,7 @@ namespace Project882020
                 com.Parameters.AddWithValue("@country", ddlcountry.SelectedValue);
                 com.Parameters.AddWithValue("@state", ddlstate.SelectedValue);
                 com.Parameters.AddWithValue("@password", textpass.Text);
+                com.Parameters.AddWithValue("@city", ddlcity.SelectedValue);
                 com.ExecuteNonQuery();
                 con.Close();
                 
@@ -129,8 +156,11 @@ namespace Project882020
                 com.Parameters.AddWithValue("@country", ddlcountry.SelectedValue);
                 com.Parameters.AddWithValue("@state", ddlstate.SelectedValue);
                 com.Parameters.AddWithValue("@password", textpass.Text);
+                com.Parameters.AddWithValue("@city", ddlcity.SelectedValue);
                 com.ExecuteNonQuery();
                 con.Close();
+                ddlstate.Enabled = false;
+                ddlcity.Enabled = false;
                 
                 btn_submit.Text = "Submit";
             }
@@ -168,8 +198,13 @@ namespace Project882020
                 textEmail.Text = dt.Rows[0]["email"].ToString();
                 ddlcourse.SelectedValue = dt.Rows[0]["course"].ToString();
                 ddlcountry.SelectedValue = dt.Rows[0]["country"].ToString();
+                ddlstate.Enabled = true;
+                BindState();
                 ddlstate.SelectedValue = dt.Rows[0]["state"].ToString();
+                ddlcity.Enabled = true;
+                BindCity();
                 textpass.Text = dt.Rows[0]["password"].ToString();
+                ddlcity.SelectedValue = dt.Rows[0]["city"].ToString();
                 btn_submit.Text = "Update";
                 ViewState["id"] = e.CommandArgument;
             }
@@ -177,7 +212,14 @@ namespace Project882020
 
         protected void ddlcountry_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ddlstate.Enabled = true;
             BindState();
+        }
+
+        protected void ddlstate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ddlcity.Enabled = true;
+            BindCity();
         }
     }
 }
