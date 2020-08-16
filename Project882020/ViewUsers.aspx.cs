@@ -32,8 +32,15 @@ namespace Project882020
             da.Fill(dt);
             com.ExecuteNonQuery();
             con.Close();
-            gv.DataSource = dt;
-            gv.DataBind();
+            if (dt.Rows.Count > 0)
+            {
+                gv.DataSource = dt;
+                gv.DataBind();
+            }
+            else
+            {
+                labmsg.Text = "No Record found!!";
+            }
         }
 
         protected void gv_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -45,14 +52,48 @@ namespace Project882020
                 com.CommandType = CommandType.StoredProcedure;
                 com.Parameters.AddWithValue("@action", "delete");
                 com.Parameters.AddWithValue("@id", e.CommandArgument);
-                com.ExecuteNonQuery();
+                int i = com.ExecuteNonQuery();
                 con.Close();
+                if (i > 0)
+                {
+                    labmsg.Text =i+ " Record Deleted   ";
+                }
+                else
+                {
+                    labmsg.Text = "Record not deleted";
+                }
                 BindUser();
 
             }
             else if (e.CommandName == "B")
             {
                 Response.Redirect("Registration.aspx?edit="+e.CommandArgument);
+            }
+        }
+
+        protected void btn_search_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand com = new SqlCommand("commonprocedure", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@action", "search");
+            com.Parameters.AddWithValue("@name",textSearch.Text);
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            com.ExecuteNonQuery();
+            con.Close();
+            if (dt.Rows.Count > 0)
+            {
+                gv.DataSource = dt;
+                gv.DataBind();
+                labmsg.Text = "";
+            }
+            else
+            {
+                gv.DataSource = null;
+                gv.DataBind();
+                labmsg.Text=" NO RECORD FOUND!!";
             }
         }
     }

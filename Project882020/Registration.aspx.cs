@@ -46,19 +46,22 @@ namespace Project882020
             da.Fill(dt);
             com.ExecuteNonQuery();
             con.Close();
-            textName.Text = dt.Rows[0]["name"].ToString();
-            rblgender.SelectedValue = dt.Rows[0]["gender"].ToString();
-            textEmail.Text = dt.Rows[0]["email"].ToString();
-            ddlcourse.SelectedValue = dt.Rows[0]["course"].ToString();
-            ddlcountry.SelectedValue = dt.Rows[0]["country"].ToString();
-            ddlstate.Enabled = true;
-            BindState();
-            ddlstate.SelectedValue = dt.Rows[0]["state"].ToString();
-            ddlcity.Enabled = true;
-            BindCity();
-            textpass.Text = dt.Rows[0]["password"].ToString();
-            ddlcity.SelectedValue = dt.Rows[0]["city"].ToString();
-            btn_submit.Text = "Update";
+            if (dt.Rows.Count > 0)
+            {
+                textName.Text = dt.Rows[0]["name"].ToString();
+                rblgender.SelectedValue = dt.Rows[0]["gender"].ToString();
+                textEmail.Text = dt.Rows[0]["email"].ToString();
+                ddlcourse.SelectedValue = dt.Rows[0]["course"].ToString();
+                ddlcountry.SelectedValue = dt.Rows[0]["country"].ToString();
+                ddlstate.Enabled = true;
+                BindState();
+                ddlstate.SelectedValue = dt.Rows[0]["state"].ToString();
+                ddlcity.Enabled = true;
+                BindCity();
+                textpass.Text = dt.Rows[0]["password"].ToString();
+                ddlcity.SelectedValue = dt.Rows[0]["city"].ToString();
+                btn_submit.Text = "Update";
+            }
             
         }
 
@@ -71,11 +74,14 @@ namespace Project882020
             da.Fill(dt);
             com.ExecuteNonQuery();
             con.Close();
-            ddlcourse.DataValueField = "c_id";
-            ddlcourse.DataTextField = "c_name";
-            ddlcourse.DataSource = dt;
-            ddlcourse.DataBind();
-            ddlcourse.Items.Insert(0, new ListItem("--Select--", "0"));
+            if (dt.Rows.Count > 0)
+            {
+                ddlcourse.DataValueField = "c_id";
+                ddlcourse.DataTextField = "c_name";
+                ddlcourse.DataSource = dt;
+                ddlcourse.DataBind();
+                ddlcourse.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
         }
 
         public void BindCountry()
@@ -87,11 +93,14 @@ namespace Project882020
             da.Fill(dt);
             com.ExecuteNonQuery();
             con.Close();
-            ddlcountry.DataValueField = "country_id";
-            ddlcountry.DataTextField = "country_name";
-            ddlcountry.DataSource = dt;
-            ddlcountry.DataBind();
-            ddlcountry.Items.Insert(0, new ListItem("--Select--", "0"));
+            if (dt.Rows.Count > 0)
+            {
+                ddlcountry.DataValueField = "country_id";
+                ddlcountry.DataTextField = "country_name";
+                ddlcountry.DataSource = dt;
+                ddlcountry.DataBind();
+                ddlcountry.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
         }
 
         public void BindState()
@@ -103,11 +112,14 @@ namespace Project882020
             da.Fill(dt);
             com.ExecuteNonQuery();
             con.Close();
-            ddlstate.DataValueField = "state_id";
-            ddlstate.DataTextField = "state_name";
-            ddlstate.DataSource = dt;
-            ddlstate.DataBind();
-            ddlstate.Items.Insert(0, new ListItem("--Select", "0"));
+            if (dt.Rows.Count > 0)
+            {
+                ddlstate.DataValueField = "state_id";
+                ddlstate.DataTextField = "state_name";
+                ddlstate.DataSource = dt;
+                ddlstate.DataBind();
+                ddlstate.Items.Insert(0, new ListItem("--Select", "0"));
+            }
 
 
         }
@@ -121,11 +133,14 @@ namespace Project882020
             da.Fill(dt);
             com.ExecuteNonQuery();
             con.Close();
-            ddlcity.DataValueField = "city_id";
-            ddlcity.DataTextField = "city_name";
-            ddlcity.DataSource = dt;
-            ddlcity.DataBind();
-            ddlcity.Items.Insert(0,  new ListItem("--Select","0"));
+            if (dt.Rows.Count > 0)
+            {
+                ddlcity.DataValueField = "city_id";
+                ddlcity.DataTextField = "city_name";
+                ddlcity.DataSource = dt;
+                ddlcity.DataBind();
+                ddlcity.Items.Insert(0, new ListItem("--Select", "0"));
+            }
 
         }
         public void clear()
@@ -160,8 +175,16 @@ namespace Project882020
                 com.Parameters.AddWithValue("@state", ddlstate.SelectedValue);
                 com.Parameters.AddWithValue("@password", textpass.Text);
                 com.Parameters.AddWithValue("@city", ddlcity.SelectedValue);
-                com.ExecuteNonQuery();
+                int i=com.ExecuteNonQuery();
                 con.Close();
+                if (i > 0)
+                {
+                    labmsg.Text =i + " Record Inserted";
+                }
+                else
+                {
+                    labmsg.Text = "Record not Inserted";
+                }
                 
             }
             else if (btn_submit.Text == "Update")
@@ -179,8 +202,16 @@ namespace Project882020
                 com.Parameters.AddWithValue("@state", ddlstate.SelectedValue);
                 com.Parameters.AddWithValue("@password", textpass.Text);
                 com.Parameters.AddWithValue("@city", ddlcity.SelectedValue);
-                com.ExecuteNonQuery();
+                int i = com.ExecuteNonQuery();
                 con.Close();
+                if (i > 0)
+                {
+                    labmsg.Text = "Record Updated";
+                }
+                else
+                {
+                    labmsg.Text = "Record not Updated";
+                }
                 ddlstate.Enabled = false;
                 ddlcity.Enabled = false;
                 

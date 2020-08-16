@@ -150,6 +150,11 @@
                 <asp:Button ID="btn_submit" runat="server" Text="Submit" OnClientClick="return validation()" OnClick="btn_submit_Click" /></td>
         </tr>
 
+        <tr>
+        <td>
+            <asp:Label ID="labmsg" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
+        </td>
+    </tr>
     </table>
 
 </asp:Content>

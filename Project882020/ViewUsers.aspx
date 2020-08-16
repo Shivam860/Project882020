@@ -5,6 +5,12 @@
 <table>
     <tr>
         <td>
+            <asp:TextBox ID="textSearch" runat="server"></asp:TextBox>
+            <asp:Button ID="btn_search" runat="server" OnClick="btn_search_Click" Text="Search"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
             <asp:GridView ID="gv" runat="server" OnRowCommand="gv_RowCommand" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
@@ -75,6 +81,11 @@
                     <SortedDescendingHeaderStyle BackColor="#15524A" />
 
                 </asp:GridView>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <asp:Label ID="labmsg" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
         </td>
     </tr>
 </table>
