@@ -23,8 +23,43 @@ namespace Project882020
                 ddlstate.Items.Insert(0, new ListItem("--Select--", "0"));
                 ddlcity.Enabled = false;
                 ddlcity.Items.Insert(0, new ListItem("--Select--", "0"));
-                BindUser();
+                
             }
+            if (Request.QueryString["edit"] != null && Request.QueryString["edit"]!="")
+            {
+                if (!IsPostBack)
+                {
+                    Edit();
+                }
+            }
+        }
+
+        public void Edit()
+        {
+            con.Open();
+            SqlCommand com = new SqlCommand("commonprocedure", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@action", "edit");
+            com.Parameters.AddWithValue("@id", Request.QueryString["edit"]);
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            com.ExecuteNonQuery();
+            con.Close();
+            textName.Text = dt.Rows[0]["name"].ToString();
+            rblgender.SelectedValue = dt.Rows[0]["gender"].ToString();
+            textEmail.Text = dt.Rows[0]["email"].ToString();
+            ddlcourse.SelectedValue = dt.Rows[0]["course"].ToString();
+            ddlcountry.SelectedValue = dt.Rows[0]["country"].ToString();
+            ddlstate.Enabled = true;
+            BindState();
+            ddlstate.SelectedValue = dt.Rows[0]["state"].ToString();
+            ddlcity.Enabled = true;
+            BindCity();
+            textpass.Text = dt.Rows[0]["password"].ToString();
+            ddlcity.SelectedValue = dt.Rows[0]["city"].ToString();
+            btn_submit.Text = "Update";
+            
         }
 
         public void BindCourse()
@@ -108,20 +143,7 @@ namespace Project882020
             btn_submit.Text = "Submit";
         }
 
-        public void BindUser()
-        {
-            con.Open();
-            SqlCommand com = new SqlCommand("commonprocedure", con);
-            com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.AddWithValue("@action","display");
-            SqlDataAdapter da = new SqlDataAdapter(com);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            com.ExecuteNonQuery();
-            con.Close();
-            gv.DataSource = dt;
-            gv.DataBind();
-        }
+        
         protected void btn_submit_Click(object sender, EventArgs e)
         {
             if (btn_submit.Text == "Submit")
@@ -148,7 +170,7 @@ namespace Project882020
                 SqlCommand com = new SqlCommand("commonprocedure", con);
                 com.CommandType = CommandType.StoredProcedure;
                 com.Parameters.AddWithValue("@action", "update");
-                com.Parameters.AddWithValue("@id", ViewState["id"]);
+                com.Parameters.AddWithValue("@id", Request.QueryString["edit"]);
                 com.Parameters.AddWithValue("@name", textName.Text);
                 com.Parameters.AddWithValue("@gender", rblgender.SelectedValue);
                 com.Parameters.AddWithValue("@email", textEmail.Text);
@@ -164,51 +186,10 @@ namespace Project882020
                 
                 btn_submit.Text = "Submit";
             }
-            BindUser();
+            
             clear();
         }
 
-        protected void gv_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "A")
-            {
-                con.Open();
-                SqlCommand com = new SqlCommand("commonprocedure", con);
-                com.CommandType = CommandType.StoredProcedure;
-                com.Parameters.AddWithValue("@action", "delete");
-                com.Parameters.AddWithValue("@id", e.CommandArgument);
-                com.ExecuteNonQuery();
-                con.Close();
-                BindUser();
-            }
-            else if (e.CommandName == "B")
-            {
-                con.Open();
-                SqlCommand com = new SqlCommand("commonprocedure", con);
-                com.CommandType = CommandType.StoredProcedure;
-                com.Parameters.AddWithValue("@action", "edit");
-                com.Parameters.AddWithValue("@id", e.CommandArgument);
-                SqlDataAdapter da = new SqlDataAdapter(com);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                com.ExecuteNonQuery();
-                con.Close();
-                textName.Text = dt.Rows[0]["name"].ToString();
-                rblgender.SelectedValue = dt.Rows[0]["gender"].ToString();
-                textEmail.Text = dt.Rows[0]["email"].ToString();
-                ddlcourse.SelectedValue = dt.Rows[0]["course"].ToString();
-                ddlcountry.SelectedValue = dt.Rows[0]["country"].ToString();
-                ddlstate.Enabled = true;
-                BindState();
-                ddlstate.SelectedValue = dt.Rows[0]["state"].ToString();
-                ddlcity.Enabled = true;
-                BindCity();
-                textpass.Text = dt.Rows[0]["password"].ToString();
-                ddlcity.SelectedValue = dt.Rows[0]["city"].ToString();
-                btn_submit.Text = "Update";
-                ViewState["id"] = e.CommandArgument;
-            }
-        }
 
         protected void ddlcountry_SelectedIndexChanged(object sender, EventArgs e)
         {

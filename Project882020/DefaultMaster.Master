@@ -28,14 +28,10 @@
                     <td>
                         <div id="menu">
 		<ul class="menu">
-			<li><a href="#" class="parent"><span>Home</span></a>
-				
-			</li>
-			<li><a href="#"><span>Product Info</span></a>
-				
-			</li>
+			<li><a href="#" class="parent"><span>Home</span></a></li>
+			<li><a href="#"><span>Product Info</span></a></li>
 			<li><a href="#"><span>Help</span></a></li>
-			<li class="last"><a href="#"><span>Contacts</span></a></li>
+			<li><a href="ViewUsers.aspx"><span>Records</span></a></li>
             <li class="last"><a href="Registration.aspx"><span>Register</span></a></li>
 		</ul>
 	</div>
