@@ -24,13 +24,13 @@ namespace Project882020
         protected global::System.Web.UI.WebControls.TextBox textName;
 
         /// <summary>
-        /// rblgender control.
+        /// textURL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rblgender;
+        protected global::System.Web.UI.WebControls.TextBox textURL;
 
         /// <summary>
         /// textEmail control.
@@ -42,13 +42,31 @@ namespace Project882020
         protected global::System.Web.UI.WebControls.TextBox textEmail;
 
         /// <summary>
-        /// ddlcourse control.
+        /// textPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlcourse;
+        protected global::System.Web.UI.WebControls.TextBox textPass;
+
+        /// <summary>
+        /// textPerson control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textPerson;
+
+        /// <summary>
+        /// textNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textNumber;
 
         /// <summary>
         /// ddlcountry control.
@@ -78,30 +96,30 @@ namespace Project882020
         protected global::System.Web.UI.WebControls.DropDownList ddlcity;
 
         /// <summary>
-        /// textpass control.
+        /// textAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textpass;
+        protected global::System.Web.UI.WebControls.TextBox textAddress;
 
         /// <summary>
-        /// btn_submit control.
+        /// textComment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_submit;
+        protected global::System.Web.UI.WebControls.TextBox textComment;
 
         /// <summary>
-        /// labmsg control.
+        /// Btn_save_recruter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labmsg;
+        protected global::System.Web.UI.WebControls.Button Btn_save_recruter;
     }
 }

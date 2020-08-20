@@ -13,5 +13,20 @@ namespace Project882020
         {
 
         }
+
+        protected void ddlcountry_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void ddlstate_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Btn_save_recruter_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
