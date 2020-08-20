@@ -69,28 +69,39 @@
   <ItemGroup>
     <Content Include="Footer.ascx" />
     <Content Include="Header.ascx" />
+    <Content Include="HomePage.aspx" />
     <Content Include="images\item-pointer-mover.gif" />
     <Content Include="images\item-pointer.gif" />
     <Content Include="images\lava.gif" />
     <Content Include="images\lava.png" />
     <Content Include="images\main-bg.png" />
     <Content Include="images\main-delimiter.png" />
+    <Content Include="Login_JobSeeker.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="pictures\hheaderpic.jpg" />
     <Content Include="pictures\webheader.png" />
     <Content Include="jquery.js" />
     <Content Include="menu.css" />
     <Content Include="menu.js" />
-    <Content Include="Registration.aspx" />
-    <Content Include="ViewUsers.aspx" />
+    <Content Include="REG_JobRecruter.aspx" />
+    <Content Include="REG_JobSeeker.aspx" />
+    <Content Include="Manage_JobSeeker.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefaultMaster.Master.cs">
-      <DependentUpon>DefaultMaster.Master</DependentUpon>
+    <Compile Include="JobRecruter_master.Master.cs">
+      <DependentUpon>JobRecruter_master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="DefaultMaster.Master.designer.cs">
-      <DependentUpon>DefaultMaster.Master</DependentUpon>
+    <Compile Include="JobRecruter_master.Master.designer.cs">
+      <DependentUpon>JobRecruter_master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="JobSeeker_master.Master.cs">
+      <DependentUpon>JobSeeker_master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobSeeker_master.Master.designer.cs">
+      <DependentUpon>JobSeeker_master.Master</DependentUpon>
     </Compile>
     <Compile Include="Footer.ascx.cs">
       <DependentUpon>Footer.ascx</DependentUpon>
@@ -106,25 +117,62 @@
     <Compile Include="Header.ascx.designer.cs">
       <DependentUpon>Header.ascx</DependentUpon>
     </Compile>
+    <Compile Include="HomePage.aspx.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePage.aspx.designer.cs">
+      <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login_JobSeeker.aspx.cs">
+      <DependentUpon>Login_JobSeeker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login_JobSeeker.aspx.designer.cs">
+      <DependentUpon>Login_JobSeeker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registration.aspx.cs">
-      <DependentUpon>Registration.aspx</DependentUpon>
+    <Compile Include="REG_JobRecruter.aspx.cs">
+      <DependentUpon>REG_JobRecruter.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registration.aspx.designer.cs">
-      <DependentUpon>Registration.aspx</DependentUpon>
+    <Compile Include="REG_JobRecruter.aspx.designer.cs">
+      <DependentUpon>REG_JobRecruter.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewUsers.aspx.cs">
-      <DependentUpon>ViewUsers.aspx</DependentUpon>
+    <Compile Include="REG_JobSeeker.aspx.cs">
+      <DependentUpon>REG_JobSeeker.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ViewUsers.aspx.designer.cs">
-      <DependentUpon>ViewUsers.aspx</DependentUpon>
+    <Compile Include="REG_JobSeeker.aspx.designer.cs">
+      <DependentUpon>REG_JobSeeker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default_master.Master.cs">
+      <DependentUpon>Default_master.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default_master.Master.designer.cs">
+      <DependentUpon>Default_master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Manage_JobSeeker.aspx.cs">
+      <DependentUpon>Manage_JobSeeker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage_JobSeeker.aspx.designer.cs">
+      <DependentUpon>Manage_JobSeeker.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DefaultMaster.Master" />
+    <Content Include="JobSeeker_master.Master" />
+    <Content Include="JobRecruter_master.Master" />
     <None Include="packages.config" />
+    <Content Include="Default_master.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

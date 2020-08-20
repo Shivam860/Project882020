@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Project882020
 {
-    public partial class DefaultMaster : System.Web.UI.MasterPage
+    public partial class Default_master : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -11,7 +11,7 @@ namespace Project882020
 {
 
 
-    public partial class DefaultMaster
+    public partial class JobSeeker_master
     {
 
         /// <summary>

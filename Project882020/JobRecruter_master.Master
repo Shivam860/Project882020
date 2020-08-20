@@ -1,7 +1,6 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DefaultMaster.master.cs" Inherits="Project882020.DefaultMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="JobRecruter_master.master.cs" Inherits="Project882020.JobRecruter_master" %>
 <%@ Register Src="~/Header.ascx" TagName="myheader" TagPrefix="wuc" %>
 <%@ Register Src="~/Footer.ascx" TagName="myfooter" TagPrefix="wuc" %>
-
 <!DOCTYPE html>
 
 <html>
@@ -28,11 +27,8 @@
                     <td>
                         <div id="menu">
 		<ul class="menu">
-			<li><a href="#" class="parent"><span>Home</span></a></li>
-			<li><a href="#"><span>Product Info</span></a></li>
-			<li><a href="#"><span>Help</span></a></li>
-			<li><a href="ViewUsers.aspx"><span>Records</span></a></li>
-            <li class="last"><a href="Registration.aspx"><span>Register</span></a></li>
+			<li><a href="Login_JobSeeker.aspx"><span>Login</span></a></li>
+            <li class="last"><a href="REG_JobSeeker.aspx"><span>Register</span></a></li>
 		</ul>
 	</div>
                     </td>
@@ -42,7 +38,7 @@
                     <td>
                         <center>
                             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                            </asp:ContentPlaceHolder>
+            </asp:ContentPlaceHolder>
                         </center>
                     </td>
                 </tr>
@@ -53,7 +49,6 @@
                     </td>
                 </tr>
             </table>
-            
         </div>
     </form>
 </body>

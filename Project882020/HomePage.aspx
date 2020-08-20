@@ -1,18 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DefaultMaster.Master" AutoEventWireup="true" CodeBehind="ViewUsers.aspx.cs" Inherits="Project882020.ViewUsers" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/JobSeeker_master.Master" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="Project882020.HomePage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<h1>Hello  <asp:Label ID="labmsg" runat="server" ForeColor="Black" Font-Bold="true"></asp:Label>......</h1>
 <table>
     <tr>
         <td>
-            <asp:TextBox ID="textSearch" runat="server"></asp:TextBox>
-            <asp:Button ID="btn_search" runat="server" OnClick="btn_search_Click" Text="Search"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <asp:GridView ID="gv" runat="server" OnRowCommand="gv_RowCommand" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
-                    <AlternatingRowStyle BackColor="White" />
+            <asp:GridView ID="gv_home" runat="server" OnRowCommand="gv_home_RowCommand" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+                 <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:TemplateField HeaderText="User ID">
                             <ItemTemplate>
@@ -80,12 +75,7 @@
                     <SortedDescendingCellStyle BackColor="#D4DFE1" />
                     <SortedDescendingHeaderStyle BackColor="#15524A" />
 
-                </asp:GridView>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <asp:Label ID="labmsg" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
+            </asp:GridView>
         </td>
     </tr>
 </table>

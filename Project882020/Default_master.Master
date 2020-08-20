@@ -1,0 +1,59 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Default_master.Master.cs" Inherits="Project882020.Default_master" %>
+<%@ Register Src="~/Header.ascx" TagName="myheader" TagPrefix="wuc" %>
+<%@ Register Src="~/Footer.ascx" TagName="myfooter" TagPrefix="wuc" %>
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <script src="jquery.js"></script>
+    <link href="menu.css" rel="stylesheet" />
+    <script src="menu.js"></script>
+
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+            <table>
+                <tr>
+                    <td>
+						<wuc:myheader id="header" runat="server"></wuc:myheader> 
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div id="menu">
+		<ul class="menu">
+			<li><a href="Login_JobSeeker.aspx"><span>Login</span></a></li>
+            <li class="last"><a href="REG_JobSeeker.aspx"><span>Register</span></a></li>
+		</ul>
+	</div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <center>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+                        </center>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+						<wuc:myfooter id="footer" runat="server"></wuc:myfooter>
+                    </td>
+                </tr>
+            </table>
+
+
+            
+        </div>
+    </form>
+</body>
+</html>

@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace Project882020
 {
-    public partial class ViewUsers : System.Web.UI.Page
+    public partial class Manage_JobSeeker : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["database_connection"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace Project882020
             }
             else if (e.CommandName == "B")
             {
-                Response.Redirect("Registration.aspx?edit="+e.CommandArgument);
+                Response.Redirect("REG_JobSeeker.aspx?edit=" + e.CommandArgument);
             }
         }
 

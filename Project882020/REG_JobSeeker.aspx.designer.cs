@@ -11,7 +11,7 @@ namespace Project882020
 {
 
 
-    public partial class Registration
+    public partial class REG_JobSeeker
     {
 
         /// <summary>

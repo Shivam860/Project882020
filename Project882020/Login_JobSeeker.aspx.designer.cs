@@ -11,35 +11,35 @@ namespace Project882020
 {
 
 
-    public partial class ViewUsers
+    public partial class Login_JobSeeker
     {
 
         /// <summary>
-        /// textSearch control.
+        /// textEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textSearch;
+        protected global::System.Web.UI.WebControls.TextBox textEmail;
 
         /// <summary>
-        /// btn_search control.
+        /// textpass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_search;
+        protected global::System.Web.UI.WebControls.TextBox textpass;
 
         /// <summary>
-        /// gv control.
+        /// btn_login control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gv;
+        protected global::System.Web.UI.WebControls.Button btn_login;
 
         /// <summary>
         /// labmsg control.
