@@ -15,6 +15,15 @@ namespace Project882020
     {
 
         /// <summary>
+        /// ddlselect control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlselect;
+
+        /// <summary>
         /// textEmail control.
         /// </summary>
         /// <remarks>

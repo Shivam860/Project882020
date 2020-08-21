@@ -21,28 +21,55 @@ namespace Project882020
 
         protected void btn_login_Click(object sender, EventArgs e)
         {
-            con.Open();
-            SqlCommand com = new SqlCommand("commonprocedure", con);
-            com.CommandType = CommandType.StoredProcedure;
-            SqlDataAdapter da = new SqlDataAdapter(com);
-            com.Parameters.AddWithValue("@action", "login");
-            com.Parameters.AddWithValue("@email", textEmail.Text );
-            com.Parameters.AddWithValue("@password", textpass.Text);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            com.ExecuteNonQuery();
-            con.Close();
-            if (dt.Rows.Count > 0)
-            {
-                Session["id"]=dt.Rows[0]["id"].ToString();
-                Response.Redirect("HomePage.aspx");
-                labmsg.Text = "Login Successful";
+            if (ddlselect.SelectedValue=="1") {
+                con.Open();
+                SqlCommand com = new SqlCommand("commonprocedure", con);
+                com.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(com);
+                com.Parameters.AddWithValue("@action", "login");
+                com.Parameters.AddWithValue("@email", textEmail.Text);
+                com.Parameters.AddWithValue("@password", textpass.Text);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                com.ExecuteNonQuery();
+                con.Close();
+                if (dt.Rows.Count > 0)
+                {
+                    Session["id"] = dt.Rows[0]["id"].ToString();
+                    Response.Redirect("HomePage.aspx");
+                    labmsg.Text = "Login Successful";
+                }
+                else
+                {
+                    labmsg.Text = "You have enter Incoorrect Email or Password";
+                }
             }
-            else
+            else if (ddlselect.SelectedValue == "2")
             {
-                labmsg.Text = "You have enter Incoorrect Email or Password";
+                con.Open();
+                SqlCommand com = new SqlCommand("commonprocedure", con);
+                com.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter(com);
+                com.Parameters.AddWithValue("@action", "login");
+                com.Parameters.AddWithValue("@email", textEmail.Text);
+                com.Parameters.AddWithValue("@password", textpass.Text);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                com.ExecuteNonQuery();
+                con.Close();
+                if (dt.Rows.Count > 0)
+                {
+                    Session["id"] = dt.Rows[0]["id"].ToString();
+                    Response.Redirect("HomePageRecruter.aspx");
+                    labmsg.Text = "Login Successful";
+                }
+                else
+                {
+                    labmsg.Text = "You have enter Incoorrect Email or Password";
+                }
             }
-           
+
         }
+        
     }
 }

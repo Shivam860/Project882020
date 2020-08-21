@@ -81,8 +81,14 @@
         </tr>
 
         <tr>
+            <td colspan="2">
+                <asp:Button ID="Btn_save_recruter" runat="server" Text="Submit" OnClick="Btn_save_recruter_Click" />
+            </td>
+        </tr>
+
+        <tr>
             <td>
-                <asp:Button ID="Btn_save_recruter" runat="server" OnClick="Btn_save_recruter_Click" />
+                <asp:Label ID="labmsg" runat="server" ></asp:Label>
             </td>
         </tr>
     </table>

@@ -35,6 +35,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <table>
     <tr>
+        <td><asp:DropDownList ID="ddlselect" runat="server">
+            <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+            <asp:ListItem Text="JobSeeker" Value="1"></asp:ListItem>
+            <asp:ListItem Text="JobRecruter" Value="2"></asp:ListItem>
+            </asp:DropDownList></td>
+    </tr>
+
+    <tr>
          <td>Email :</td>
          <td><asp:TextBox ID="textEmail" runat="server"></asp:TextBox></td>
     </tr>
