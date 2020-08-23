@@ -81,9 +81,12 @@
         </tr>
 
         <tr>
-            <td colspan="2">
+            <td>
                 <asp:Button ID="Btn_save_recruter" runat="server" Text="Submit" OnClick="Btn_save_recruter_Click" />
             </td>
+            <td>
+                  <a href="Login.aspx">Login</a>
+              </td> 
         </tr>
 
         <tr>

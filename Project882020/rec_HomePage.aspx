@@ -1,82 +1,71 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="Manage_JobSeeker.aspx.cs" Inherits="Project882020.Manage_JobSeeker" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/JobRecruter_master.Master" AutoEventWireup="true" CodeBehind="rec_HomePage.aspx.cs" Inherits="Project882020.rec_HomePage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<table>
-    <tr>
-        <td>
-            <asp:TextBox ID="textSearch" runat="server"></asp:TextBox>
-            <asp:Button ID="btn_search" runat="server" OnClick="btn_search_Click" Text="Search"/>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <asp:GridView ID="gv" runat="server" OnRowCommand="gv_RowCommand" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+    <h1>Hello <asp:Label ID="lbmsg" runat="server" Font-Bold="true" ForeColor="Black"></asp:Label></h1>
+    <table>
+        <tr>
+            <td>
+                <asp:GridView ID="gv_recuter" runat="server" OnRowCommand="gv_recuter_RowCommand" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
-                        <asp:TemplateField HeaderText="User ID">
+                        <asp:TemplateField HeaderText="Company Name">
                             <ItemTemplate>
-                                <%#Eval("id") %>
+                                <%#Eval("r_cname") %>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="User Name">
+                        <asp:TemplateField HeaderText="Company Url">
                             <ItemTemplate>
-                                <%#Eval("name") %>
+                                <%#Eval("r_url") %>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Gender">
+                        <asp:TemplateField HeaderText="Email">
                             <ItemTemplate>
-                                <%#Eval("gender").ToString() == "1" ? "male" :Eval("gender").ToString() == "2" ? "Female" : "others"%>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="User Email">
-                            <ItemTemplate>
-                                <%#Eval("email") %>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Course">
-                            <ItemTemplate>
-                                <%#Eval("c_name") %>
+                                <%#Eval("r_email") %>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="Password">
                             <ItemTemplate>
-                                <%#Eval("password") %>
+                                <%#Eval("r_password") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Contact Person">
+                            <ItemTemplate>
+                                <%#Eval("r_contactperson") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Contact Number">
+                            <ItemTemplate>
+                                <%#Eval("r_contactnumber") %>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                         <asp:TemplateField HeaderText="Address">
                             <ItemTemplate>
-                                <%#Eval("city_name") %>, <%#Eval("state_name") %>,<%#Eval("country_name") %>
+                                <%#Eval("r_companyaddress") %>,<%#Eval("r_city") %>,<%#Eval("r_state") %>,<%#Eval("r_country") %>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField HeaderText="Status">
+                        <asp:TemplateField HeaderText="Comment">
                             <ItemTemplate>
-                                <%#Eval("status") %>
+                                <%#Eval("comment") %>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField>
+                        <asp:TemplateField >
                             <ItemTemplate>
-                                <asp:Button ID="btn_delete" runat="server" Text="Delete" CommandName="A" CommandArgument='<%#Eval("id") %>'/>
+                                <asp:Button ID="btn_delete" runat="server" CommandName="A" Text="Delete" CommandArgument='<%#Eval("r_id") %>'/>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField>
+                        <asp:TemplateField >
                             <ItemTemplate>
-                                <asp:Button ID="btn_edit" runat="server" Text="Edit" CommandName="B" CommandArgument='<%#Eval("id") %>'/>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField>
-                            <ItemTemplate>
-                                <asp:Button ID="btn_aprove" runat="server" Text="Approve" CommandName="C" CommandArgument='<%#Eval("id") %>' />
+                                <asp:Button ID="btn_edit" runat="server" Text="Edit" CommandName="B" CommandArgument='<%#Eval("r_id") %>'/>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>
@@ -93,12 +82,7 @@
                     <SortedDescendingHeaderStyle BackColor="#15524A" />
 
                 </asp:GridView>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <asp:Label ID="labmsg" runat="server" ForeColor="Red" Font-Bold="true"></asp:Label>
-        </td>
-    </tr>
-</table>
+            </td>
+        </tr>
+    </table>
 </asp:Content>

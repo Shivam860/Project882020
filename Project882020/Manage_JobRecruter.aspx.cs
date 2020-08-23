@@ -10,7 +10,7 @@ using System.Configuration;
 
 namespace Project882020
 {
-    public partial class Manage_JobSeeker : System.Web.UI.Page
+    public partial class Manage_JobRecruter : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["database_connection"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
@@ -20,11 +20,10 @@ namespace Project882020
                 BindUser();
             }
         }
-
         public void BindUser()
         {
             con.Open();
-            SqlCommand com = new SqlCommand("commonprocedure", con);
+            SqlCommand com = new SqlCommand("recprocedure", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@action", "display");
             SqlDataAdapter da = new SqlDataAdapter(com);
@@ -34,45 +33,42 @@ namespace Project882020
             con.Close();
             if (dt.Rows.Count > 0)
             {
-                gv.DataSource = dt;
-                gv.DataBind();
-            }
-            else
-            {
-                labmsg.Text = "No Record found!!";
+                
+                gv_manager_recruter.DataSource = dt;
+                gv_manager_recruter.DataBind();
             }
         }
 
-        protected void gv_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void gv_manager_recruter_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "A")
             {
                 con.Open();
-                SqlCommand com = new SqlCommand("commonprocedure", con);
+                SqlCommand com = new SqlCommand("recprocedure", con);
                 com.CommandType = CommandType.StoredProcedure;
                 com.Parameters.AddWithValue("@action", "delete");
-                com.Parameters.AddWithValue("@id", e.CommandArgument);
+                com.Parameters.AddWithValue("@r_id", e.CommandArgument);
                 int i = com.ExecuteNonQuery();
                 con.Close();
                 if (i > 0)
                 {
-                    labmsg.Text =i+ " Record Deleted   ";
+                    labmasg.Text = i + " Record Deleted   ";
                 }
                 else
                 {
-                    labmsg.Text = "Record not deleted";
+                    labmasg.Text = "Record not deleted";
                 }
                 BindUser();
-
             }
             else if (e.CommandName == "B")
             {
-                Response.Redirect("REG_JobSeeker.aspx?edit=" + e.CommandArgument);
+                Session["r_id"] = e.CommandArgument;
+                Response.Redirect("REG_JobRecruter.aspx?edit=" + e.CommandArgument);
             }
-            else if (e.CommandName == "C")
+            else if (e.CommandName =="C")
             {
                 con.Open();
-                SqlCommand com = new SqlCommand("commonprocedure", con);
+                SqlCommand com = new SqlCommand("recprocedure", con);
                 com.CommandType = CommandType.StoredProcedure;
                 com.Parameters.AddWithValue("@action", "update_status");
                 com.Parameters.AddWithValue("@id", e.CommandArgument);
@@ -80,24 +76,23 @@ namespace Project882020
                 con.Close();
                 if (i > 0)
                 {
-                    labmsg.Text = i + " Status Updated  ";
+                    labmasg.Text = i + " Status Updated  ";
                 }
                 else
                 {
-                    labmsg.Text = "status not updated";
+                    labmasg.Text = "status not updated";
                 }
                 BindUser();
-
             }
         }
 
         protected void btn_search_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand com = new SqlCommand("commonprocedure", con);
+            SqlCommand com = new SqlCommand("recprocedure", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@action", "search");
-            com.Parameters.AddWithValue("@name",textSearch.Text);
+            com.Parameters.AddWithValue("@r_name", textSearch.Text);
             SqlDataAdapter da = new SqlDataAdapter(com);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -105,15 +100,15 @@ namespace Project882020
             con.Close();
             if (dt.Rows.Count > 0)
             {
-                gv.DataSource = dt;
-                gv.DataBind();
-                labmsg.Text = "";
+                gv_manager_recruter.DataSource = dt;
+                gv_manager_recruter.DataBind();
+                labmasg.Text = "";
             }
             else
             {
-                gv.DataSource = null;
-                gv.DataBind();
-                labmsg.Text=" NO RECORD FOUND!!";
+                gv_manager_recruter.DataSource = null;
+                gv_manager_recruter.DataBind();
+                labmasg.Text = " NO RECORD FOUND!!";
             }
         }
     }

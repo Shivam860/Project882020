@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default_master.Master" AutoEventWireup="true" CodeBehind="Login_JobSeeker.aspx.cs" Inherits="Project882020.Login_JobSeeker" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default_master.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="Project882020.Login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 <script type="text/javascript">
     function validation() {
@@ -39,6 +39,7 @@
             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
             <asp:ListItem Text="JobSeeker" Value="1"></asp:ListItem>
             <asp:ListItem Text="JobRecruter" Value="2"></asp:ListItem>
+            <asp:ListItem Text="Admin" Value="3"></asp:ListItem>
             </asp:DropDownList></td>
     </tr>
 
@@ -55,7 +56,9 @@
     <tr>
             <td></td>
             <td>
-                <asp:Button ID="btn_login" runat="server" Text="Login" OnClientClick="return validation()" OnClick="btn_login_Click" /></td>
+                <asp:Button ID="btn_login" runat="server" Text="Login" OnClientClick="return validation()" OnClick="btn_login_Click" />
+                <a href="Regrestration.aspx">SignUp</a>
+            </td>
         </tr>
 
         <tr>

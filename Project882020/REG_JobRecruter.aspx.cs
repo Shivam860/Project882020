@@ -23,9 +23,33 @@ namespace Project882020
                 ddlcity.Enabled = false;
                 ddlcity.Items.Insert(0, new ListItem("--Select--", "0"));
             }
+            if (Request.QueryString["edit"] != null && Request.QueryString["edit"] != "")
+            {
+                if (!IsPostBack)
+                {
+                    edit();
+                }
+            }
 
         }
 
+        public void edit()
+        {
+            con.Open();
+            SqlCommand com = new SqlCommand("commonprocedure", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@action", "edit");
+            com.Parameters.AddWithValue("@id", Request.QueryString["edit"]);
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            com.ExecuteNonQuery();
+            con.Close();
+            if (dt.Rows.Count > 0)
+            {
+
+            }
+        }
         public void BindCountry()
         {
             con.Open();
@@ -149,7 +173,32 @@ namespace Project882020
             }
             else if (Btn_save_recruter.Text == "update")
             {
+                con.Open();
+                SqlCommand com = new SqlCommand("recprocedure", con);
+                com.CommandType = CommandType.StoredProcedure;
+                com.Parameters.AddWithValue("@action", "update");
+                com.Parameters.AddWithValue("@r_cname", textName.Text);
+                com.Parameters.AddWithValue("@r_url", textURL.Text);
+                com.Parameters.AddWithValue("@r_email", textEmail.Text);
+                com.Parameters.AddWithValue("@r_password", textPass.Text);
+                com.Parameters.AddWithValue("@r_contactperson", textPerson.Text);
+                com.Parameters.AddWithValue("@r_contactnumber", textNumber.Text);
+                com.Parameters.AddWithValue("@r_country", ddlcountry.SelectedValue);
+                com.Parameters.AddWithValue("@r_state", ddlstate.SelectedValue);
+                com.Parameters.AddWithValue("@r_city", ddlcity.SelectedValue);
+                com.Parameters.AddWithValue("@r_companyaddress", textAddress.Text);
+                com.Parameters.AddWithValue("@comment", textComment.Text);
+                int i = com.ExecuteNonQuery();
+                con.Close();
+                if (i > 0)
+                {
+                    labmsg.Text = i + " Record Inserted";
 
+                }
+                else
+                {
+                    labmsg.Text = "Record not Inserted";
+                }
             }
             clear();
         }

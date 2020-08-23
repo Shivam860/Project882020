@@ -11,52 +11,43 @@ namespace Project882020
 {
 
 
-    public partial class Login_JobSeeker
+    public partial class Manage_JobRecruter
     {
 
         /// <summary>
-        /// ddlselect control.
+        /// textSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlselect;
+        protected global::System.Web.UI.WebControls.TextBox textSearch;
 
         /// <summary>
-        /// textEmail control.
+        /// btn_search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textEmail;
+        protected global::System.Web.UI.WebControls.Button btn_search;
 
         /// <summary>
-        /// textpass control.
+        /// gv_manager_recruter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textpass;
+        protected global::System.Web.UI.WebControls.GridView gv_manager_recruter;
 
         /// <summary>
-        /// btn_login control.
+        /// labmasg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_login;
-
-        /// <summary>
-        /// labmsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labmsg;
+        protected global::System.Web.UI.WebControls.Label labmasg;
     }
 }

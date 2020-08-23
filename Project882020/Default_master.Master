@@ -28,8 +28,7 @@
                     <td>
                         <div id="menu">
 		<ul class="menu">
-			<li><a href="Login_JobSeeker.aspx"><span>Login</span></a></li>
-            <li class="last"><a href="REG_JobSeeker.aspx"><span>Register</span></a></li>
+			
 		</ul>
 	</div>
                     </td>

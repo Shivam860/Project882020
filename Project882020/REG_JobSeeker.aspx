@@ -145,9 +145,14 @@
         </tr>
 
         <tr>
-            <td></td>
             <td>
-                <asp:Button ID="btn_submit" runat="server" Text="Submit" OnClientClick="return validation()" OnClick="btn_submit_Click" /></td>
+                <asp:Button ID="btn_submit" runat="server" Text="Submit" OnClientClick="return validation()" OnClick="btn_submit_Click" />
+
+            </td>&nbsp;&nbsp;&nbsp;&nbsp;
+              <td>
+                  <a href="Login.aspx">Login</a>
+              </td>          
+
         </tr>
 
         <tr>
