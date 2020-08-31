@@ -47,7 +47,7 @@
 
                         <asp:TemplateField HeaderText="Address">
                             <ItemTemplate>
-                                <%#Eval("city_name") %>, <%#Eval("state_name") %>,<%#Eval("country_name") %>
+                                <%#Eval("cname") %>, <%#Eval("sname") %>,<%#Eval("countryname") %>
                             </ItemTemplate>
                         </asp:TemplateField>
 

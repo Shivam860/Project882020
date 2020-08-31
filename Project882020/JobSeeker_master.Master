@@ -31,6 +31,7 @@
 			<li><a href="#" class="parent"><span>Home</span></a></li>
 			<li><a href="#"><span>Product Info</span></a></li>
 			<li><a href="HomePage.aspx"><span>JobSeeker Records</span></a></li>
+            <li><a href="#"><span>Job Post</span></a></li>
             <li><a href="Logout.aspx"><span>Logout</span></a></li>
             
 		</ul>

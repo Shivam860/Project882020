@@ -11,7 +11,7 @@
     </tr>
     <tr>
         <td>
-            <asp:GridView ID="gv_manager_recruter" runat="server" OnRowCommand="gv_manager_recruter_RowCommand" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="gv_manager_recruter" runat="server" OnRowCommand="gv_manager_recruter_RowCommand1" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:TemplateField HeaderText="Company Name">
@@ -62,21 +62,15 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                        <asp:TemplateField >
+                        <asp:TemplateField  HeaderText="Status">
                             <ItemTemplate>
-                                <asp:Button ID="btn_delete" runat="server" CommandName="A" Text="Delete" CommandArgument='<%#Eval("r_id") %>'/>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-
-                        <asp:TemplateField >
-                            <ItemTemplate>
-                                <asp:Button ID="btn_edit" runat="server" Text="Edit" CommandName="B" CommandArgument='<%#Eval("r_id") %>'/>
+                                <%#Eval("status") %>
                             </ItemTemplate>
                         </asp:TemplateField>
 
                     <asp:TemplateField >
                             <ItemTemplate>
-                                <asp:Button ID="btn_approve" runat="server" Text="Apporve" CommandName="C" CommandArgument='<%#Eval("r_id") %>'/>
+                                <asp:Button ID="btn_approve" runat="server" Text="Apporve" CommandArgument='<%#Eval("r_id") %>'/>
                             </ItemTemplate>
                         </asp:TemplateField>
 

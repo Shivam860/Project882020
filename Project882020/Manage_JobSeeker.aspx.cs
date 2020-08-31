@@ -45,32 +45,7 @@ namespace Project882020
 
         protected void gv_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "A")
-            {
-                con.Open();
-                SqlCommand com = new SqlCommand("commonprocedure", con);
-                com.CommandType = CommandType.StoredProcedure;
-                com.Parameters.AddWithValue("@action", "delete");
-                com.Parameters.AddWithValue("@id", e.CommandArgument);
-                int i = com.ExecuteNonQuery();
-                con.Close();
-                if (i > 0)
-                {
-                    labmsg.Text =i+ " Record Deleted   ";
-                }
-                else
-                {
-                    labmsg.Text = "Record not deleted";
-                }
-                BindUser();
-
-            }
-            else if (e.CommandName == "B")
-            {
-                Response.Redirect("REG_JobSeeker.aspx?edit=" + e.CommandArgument);
-            }
-            else if (e.CommandName == "C")
-            {
+            
                 con.Open();
                 SqlCommand com = new SqlCommand("commonprocedure", con);
                 com.CommandType = CommandType.StoredProcedure;
@@ -88,7 +63,7 @@ namespace Project882020
                 }
                 BindUser();
 
-            }
+            
         }
 
         protected void btn_search_Click(object sender, EventArgs e)

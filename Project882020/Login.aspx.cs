@@ -59,6 +59,7 @@ namespace Project882020
                 con.Close();
                 if (dt.Rows.Count > 0)
                 {
+                    
                     Session["r_id"] = dt.Rows[0]["r_id"].ToString();
                     Response.Redirect("rec_HomePage.aspx");
                     labmsg.Text = "Login Successful";

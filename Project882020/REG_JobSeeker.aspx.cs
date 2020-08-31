@@ -87,7 +87,9 @@ namespace Project882020
         public void BindCountry()
         {
             con.Open();
-            SqlCommand com = new SqlCommand("Select * from tblcountry", con);
+            SqlCommand com = new SqlCommand("countryproc", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@action", "select");
             SqlDataAdapter da = new SqlDataAdapter(com);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -95,8 +97,8 @@ namespace Project882020
             con.Close();
             if (dt.Rows.Count > 0)
             {
-                ddlcountry.DataValueField = "country_id";
-                ddlcountry.DataTextField = "country_name";
+                ddlcountry.DataValueField = "countryid";
+                ddlcountry.DataTextField = "countryname";
                 ddlcountry.DataSource = dt;
                 ddlcountry.DataBind();
                 ddlcountry.Items.Insert(0, new ListItem("--Select--", "0"));
@@ -106,7 +108,10 @@ namespace Project882020
         public void BindState()
         {
             con.Open();
-            SqlCommand com = new SqlCommand("Select * from tblstate where country_id='"+ddlcountry.SelectedValue+"'", con);
+            SqlCommand com = new SqlCommand("stateproc", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@action", "selectbycountry");
+            com.Parameters.AddWithValue("@countryid", ddlcountry.SelectedValue);
             SqlDataAdapter da = new SqlDataAdapter(com);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -114,11 +119,11 @@ namespace Project882020
             con.Close();
             if (dt.Rows.Count > 0)
             {
-                ddlstate.DataValueField = "state_id";
-                ddlstate.DataTextField = "state_name";
+                ddlstate.DataValueField = "sid";
+                ddlstate.DataTextField = "sname";
                 ddlstate.DataSource = dt;
                 ddlstate.DataBind();
-                ddlstate.Items.Insert(0, new ListItem("--Select", "0"));
+                ddlstate.Items.Insert(0, new ListItem("--Select--", "0"));
             }
 
 
@@ -127,7 +132,10 @@ namespace Project882020
         public void BindCity()
         {
             con.Open();
-            SqlCommand com = new SqlCommand("Select * from tblcity where state_id='" + ddlstate.SelectedValue + "'", con);
+            SqlCommand com = new SqlCommand("cityproc", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@action", "selectbystate");
+            com.Parameters.AddWithValue("@sid", ddlstate.SelectedValue);
             SqlDataAdapter da = new SqlDataAdapter(com);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -135,11 +143,11 @@ namespace Project882020
             con.Close();
             if (dt.Rows.Count > 0)
             {
-                ddlcity.DataValueField = "city_id";
-                ddlcity.DataTextField = "city_name";
+                ddlcity.DataValueField = "cid";
+                ddlcity.DataTextField = "cname";
                 ddlcity.DataSource = dt;
                 ddlcity.DataBind();
-                ddlcity.Items.Insert(0, new ListItem("--Select", "0"));
+                ddlcity.Items.Insert(0, new ListItem("--Select--", "0"));
             }
 
         }

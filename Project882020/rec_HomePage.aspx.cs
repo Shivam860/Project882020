@@ -35,6 +35,7 @@ namespace Project882020
             con.Close();
             if (dt.Rows.Count > 0)
             {
+
                 lbmsg.Text = dt.Rows[0]["r_cname"].ToString();
                 gv_recuter.DataSource = dt;
                 gv_recuter.DataBind();

@@ -31,6 +31,10 @@
             <li><a href="Home_admin.aspx"><span>Home</span></a></li>
             <li><a href="Manage_JobSeeker.aspx"><span>Manage JobSeeker</span></a></li>
             <li><a href="Manage_JobRecruter.aspx"><span>Manage JobRecruter</span></a></li>
+            <li><a href="Manage_JobPost_Admin.aspx"><span>Manage JobPost</span></a></li>
+            <li><a href="Manage_country.aspx"><span>Manage Country</span></a></li>
+            <li><a href="Manage_state.aspx"><span>Manage State</span></a></li>
+            <li><a href="Manage_city.aspx"><span>Manage City</span></a></li>
             <li><a href="Logout.aspx"><span>Logout</span></a></li>
 			
 		</ul>
