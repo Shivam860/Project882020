@@ -57,6 +57,11 @@ namespace Project882020
                 gv_Jobpost_admin.DataBind();
                 
             }
+            else
+            {
+                gv_Jobpost_admin.DataSource = "";
+                gv_Jobpost_admin.DataBind();
+            }
            
         }
     }

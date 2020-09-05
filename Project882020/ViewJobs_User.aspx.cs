@@ -39,6 +39,11 @@ namespace Project882020
                 gv_Jobuser.DataBind();
                
             }
+            else
+            {
+                gv_Jobuser.DataSource = "";
+                gv_Jobuser.DataBind();
+            }
         }
 
         public void bindDDL()
@@ -78,7 +83,11 @@ namespace Project882020
                 gv_Jobuser.DataBind();
                
             }
-            BindViewJobPost();
+            else
+            {
+                gv_Jobuser.DataSource = "";
+                gv_Jobuser.DataBind();
+            }
         }
     }
 }
