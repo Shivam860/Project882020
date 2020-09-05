@@ -24,7 +24,7 @@ namespace Project882020
         public void BindManageJobPost()
         {
             con.Open();
-            SqlCommand com = new SqlCommand("jobpostprocedure", con);
+            SqlCommand com = new SqlCommand("procjobpost", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@action", "display");
             SqlDataAdapter da = new SqlDataAdapter(com);
@@ -42,7 +42,7 @@ namespace Project882020
         protected void btn_search_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand com = new SqlCommand("jobpostprocedure", con);
+            SqlCommand com = new SqlCommand("procjobpost", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@action", "search");
             com.Parameters.AddWithValue("@j_name", textSearch.Text);
