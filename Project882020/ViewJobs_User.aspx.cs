@@ -18,29 +18,67 @@ namespace Project882020
             if (!IsPostBack)
             {
                 BindViewJobPost();
+                bindDDL();
             }
         }
 
         public void BindViewJobPost()
         {
             con.Open();
-            SqlCommand com = new SqlCommand("jobpostprocedure", con);
+            SqlCommand com = new SqlCommand("procjobpost", con);
             com.CommandType = CommandType.StoredProcedure;
-            com.Parameters.AddWithValue("@action", "join");
+            com.Parameters.AddWithValue("@action", "display");
             SqlDataAdapter da = new SqlDataAdapter(com);
             DataTable dt = new DataTable();
             da.Fill(dt);
+            com.ExecuteNonQuery();
             con.Close();
             if (dt.Rows.Count > 0)
             {
                 gv_Jobuser.DataSource = dt;
                 gv_Jobuser.DataBind();
+               
+            }
+        }
+
+        public void bindDDL()
+        {
+            con.Open();
+            SqlCommand com = new SqlCommand("select * from jobprofile", con);
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            com.ExecuteNonQuery();
+            con.Close();
+            if (dt.Rows.Count > 0)
+            {
+                ddljobuser.DataValueField = "j_id";
+                ddljobuser.DataTextField = "j_name";
+                ddljobuser.DataSource = dt;
+                ddljobuser.DataBind();
+                ddljobuser.Items.Insert(0, new ListItem("--Select--", "0"));
             }
         }
 
         protected void btn_search_Click(object sender, EventArgs e)
         {
-
+            con.Open();
+            SqlCommand com = new SqlCommand("procjobpost", con);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Parameters.AddWithValue("@action", "search");
+            com.Parameters.AddWithValue("@j_name", textSearch.Text);
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            com.ExecuteNonQuery();
+            con.Close();
+            if (dt.Rows.Count > 0)
+            {
+                gv_Jobuser.DataSource = dt;
+                gv_Jobuser.DataBind();
+               
+            }
+            BindViewJobPost();
         }
     }
 }

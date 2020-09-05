@@ -11,43 +11,52 @@ namespace Project882020
 {
 
 
-    public partial class ViewJobs_User
+    public partial class Change_Password_Recruter
     {
 
         /// <summary>
-        /// ddljobuser control.
+        /// textOldPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddljobuser;
+        protected global::System.Web.UI.WebControls.TextBox textOldPass;
 
         /// <summary>
-        /// textSearch control.
+        /// textNewPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox textSearch;
+        protected global::System.Web.UI.WebControls.TextBox textNewPass;
 
         /// <summary>
-        /// btn_search control.
+        /// textConPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_search;
+        protected global::System.Web.UI.WebControls.TextBox textConPass;
 
         /// <summary>
-        /// gv_Jobuser control.
+        /// btn_changePass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gv_Jobuser;
+        protected global::System.Web.UI.WebControls.Button btn_changePass;
+
+        /// <summary>
+        /// labmsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label labmsg;
     }
 }

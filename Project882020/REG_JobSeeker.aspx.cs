@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using System.IO;
 
 namespace Project882020
 {
@@ -23,7 +24,9 @@ namespace Project882020
                 ddlstate.Items.Insert(0, new ListItem("--Select--", "0"));
                 ddlcity.Enabled = false;
                 ddlcity.Items.Insert(0, new ListItem("--Select--", "0"));
-                
+                Bindjp();
+
+
             }
             if (Request.QueryString["edit"] != null && Request.QueryString["edit"]!="")
             {
@@ -151,6 +154,25 @@ namespace Project882020
             }
 
         }
+        public void Bindjp()
+        {
+            con.Open();
+            SqlCommand com = new SqlCommand("select * from jobprofile", con);
+            SqlDataAdapter da = new SqlDataAdapter(com);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            com.ExecuteNonQuery();
+            con.Close();
+            if (dt.Rows.Count > 0)
+            {
+                ddlregjp.DataValueField = "j_id";
+                ddlregjp.DataTextField = "j_name";
+                ddlregjp.DataSource = dt;
+                ddlregjp.DataBind();
+                ddlregjp.Items.Insert(0, new ListItem("--Select--", "0"));
+            }
+
+        }
         public void clear()
         {
             textName.Text = "";
@@ -162,6 +184,7 @@ namespace Project882020
             ddlstate.Enabled = false;
             ddlcity.SelectedValue = "0";
             ddlcity.Enabled = false;
+            ddlregjp.SelectedValue = "0";
             textpass.Text = "";
             btn_submit.Text = "Submit";
         }
@@ -169,8 +192,13 @@ namespace Project882020
         
         protected void btn_submit_Click(object sender, EventArgs e)
         {
+
             if (btn_submit.Text == "Submit")
             {
+                string FN = "";
+                FN = Path.GetFileName(imgProfile.PostedFile.FileName);
+                imgProfile.SaveAs(Server.MapPath("Profile_Image" + "//" + FN));
+
                 con.Open();
                 SqlCommand com = new SqlCommand("commonprocedure", con);
                 com.CommandType = CommandType.StoredProcedure;
@@ -182,7 +210,9 @@ namespace Project882020
                 com.Parameters.AddWithValue("@country", ddlcountry.SelectedValue);
                 com.Parameters.AddWithValue("@state", ddlstate.SelectedValue);
                 com.Parameters.AddWithValue("@password", textpass.Text);
+                com.Parameters.AddWithValue("@jobProfile", ddlregjp.SelectedValue);
                 com.Parameters.AddWithValue("@city", ddlcity.SelectedValue);
+                com.Parameters.AddWithValue("@pimage", FN);
                 int i=com.ExecuteNonQuery();
                 con.Close();
                 if (i > 0)
@@ -208,6 +238,7 @@ namespace Project882020
                 com.Parameters.AddWithValue("@course", ddlcourse.SelectedValue);
                 com.Parameters.AddWithValue("@country", ddlcountry.SelectedValue);
                 com.Parameters.AddWithValue("@state", ddlstate.SelectedValue);
+                com.Parameters.AddWithValue("@jobProfile", ddlregjp.SelectedValue);
                 com.Parameters.AddWithValue("@password", textpass.Text);
                 com.Parameters.AddWithValue("@city", ddlcity.SelectedValue);
                 int i = com.ExecuteNonQuery();

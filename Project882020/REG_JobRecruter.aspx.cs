@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
+using System.IO;
 
 namespace Project882020
 {
@@ -152,6 +153,10 @@ namespace Project882020
 
             if (Btn_save_recruter.Text == "Submit")
             {
+                string FN = "";
+                FN = Path.GetFileName(pimage.PostedFile.FileName);
+                pimage.SaveAs(Server.MapPath("Profile_Image" + "//" + FN));
+
                 con.Open();
                 SqlCommand com = new SqlCommand("recprocedure", con);
                 com.CommandType = CommandType.StoredProcedure;
@@ -167,6 +172,7 @@ namespace Project882020
                 com.Parameters.AddWithValue("@r_city", ddlcity.SelectedValue);
                 com.Parameters.AddWithValue("@r_companyaddress", textAddress.Text);
                 com.Parameters.AddWithValue("@comment", textComment.Text);
+                com.Parameters.AddWithValue("@pimage", FN);
                 int i = com.ExecuteNonQuery();
                 con.Close();
                 if (i > 0)
@@ -196,6 +202,7 @@ namespace Project882020
                 com.Parameters.AddWithValue("@r_city", ddlcity.SelectedValue);
                 com.Parameters.AddWithValue("@r_companyaddress", textAddress.Text);
                 com.Parameters.AddWithValue("@comment", textComment.Text);
+                
                 int i = com.ExecuteNonQuery();
                 con.Close();
                 if (i > 0)

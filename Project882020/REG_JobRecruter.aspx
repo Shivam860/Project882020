@@ -4,6 +4,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table>
         <tr>
+            <td>Profile Image</td>
+            <td>
+                <asp:FileUpload ID="pimage" runat="server"></asp:FileUpload>
+            </td>
+        </tr>
+        <tr>
             <td>Company Name :</td>
             <td>
                 <asp:TextBox  ID="textName" runat="server"></asp:TextBox>

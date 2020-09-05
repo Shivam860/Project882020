@@ -30,6 +30,7 @@
 			<li><a href="rec_HomePage.aspx"><span>Home</span></a></li>
             <li><a href="rec_jobpost.aspx"><span>JobPost</span></a></li>
             <li><a href="Manage_JobPost_Recruter.aspx" ><span>Manage JobPost</span></a></li>
+            <li><a href="Change_Password_Recruter.aspx" ><span>Change Password</span></a></li>
             <li class="last"><a href="Logout.aspx"><span>Logout</span></a></li>
 		</ul>
 	</div>

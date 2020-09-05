@@ -15,6 +15,12 @@
                             </ItemTemplate>
                         </asp:TemplateField>
 
+                        <asp:TemplateField>
+                            <ItemTemplate>
+                                <asp:Image ID="img1" runat="server" Width="50px" Height="50px" ImageUrl='<%#Eval("pimage","~/Profile_Image/{0}") %>' />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
                         <asp:TemplateField HeaderText="User Name">
                             <ItemTemplate>
                                 <%#Eval("name") %>
@@ -36,6 +42,12 @@
                         <asp:TemplateField HeaderText="Course">
                             <ItemTemplate>
                                 <%#Eval("c_name") %>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Job Profile">
+                            <ItemTemplate>
+                                <%#Eval("j_name") %>
                             </ItemTemplate>
                         </asp:TemplateField>
 

@@ -34,6 +34,7 @@ namespace Project882020
             con.Close();
             if (dt.Rows.Count > 0)
             {
+                Session["profile"] = dt.Rows[0]["j_name"].ToString();
                 labmsg.Text = dt.Rows[0]["name"].ToString();
                 gv_home.DataSource = dt;
                 gv_home.DataBind();

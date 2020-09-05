@@ -67,6 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ApplyForm.aspx" />
+    <Content Include="Change_Password_joobseeker.aspx" />
+    <Content Include="Change_Password_Recruter.aspx" />
     <Content Include="Footer.ascx" />
     <Content Include="Header.ascx" />
     <Content Include="HomePage.aspx" />
@@ -98,7 +101,6 @@
     <Content Include="REG_JobRecruter.aspx" />
     <Content Include="REG_JobSeeker.aspx" />
     <Content Include="Manage_JobSeeker.aspx" />
-    <Content Include="ViewJobs_admin.aspx" />
     <Content Include="ViewJobs_User.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -109,6 +111,27 @@
     </Compile>
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ApplyForm.aspx.cs">
+      <DependentUpon>ApplyForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ApplyForm.aspx.designer.cs">
+      <DependentUpon>ApplyForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Change_Password_joobseeker.aspx.cs">
+      <DependentUpon>Change_Password_joobseeker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Change_Password_joobseeker.aspx.designer.cs">
+      <DependentUpon>Change_Password_joobseeker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Change_Password_Recruter.aspx.cs">
+      <DependentUpon>Change_Password_Recruter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Change_Password_Recruter.aspx.designer.cs">
+      <DependentUpon>Change_Password_Recruter.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home_admin.aspx.cs">
       <DependentUpon>Home_admin.aspx</DependentUpon>
@@ -258,13 +281,6 @@
     <Compile Include="Manage_JobSeeker.aspx.designer.cs">
       <DependentUpon>Manage_JobSeeker.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ViewJobs_admin.aspx.cs">
-      <DependentUpon>ViewJobs_admin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ViewJobs_admin.aspx.designer.cs">
-      <DependentUpon>ViewJobs_admin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ViewJobs_User.aspx.cs">
       <DependentUpon>ViewJobs_User.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -285,6 +301,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Profile_Image\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

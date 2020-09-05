@@ -15,6 +15,15 @@ namespace Project882020
     {
 
         /// <summary>
+        /// imgProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload imgProfile;
+
+        /// <summary>
         /// textName control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace Project882020
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlcourse;
+
+        /// <summary>
+        /// ddlregjp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlregjp;
 
         /// <summary>
         /// ddlcountry control.

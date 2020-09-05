@@ -45,7 +45,7 @@ namespace Project882020
             SqlCommand com = new SqlCommand("jobpostprocedure", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@action", "search");
-            com.Parameters.AddWithValue("@r_cname", textSearch.Text);
+            com.Parameters.AddWithValue("@j_name", textSearch.Text);
             SqlDataAdapter da = new SqlDataAdapter(com);
             DataTable dt = new DataTable();
             da.Fill(dt);

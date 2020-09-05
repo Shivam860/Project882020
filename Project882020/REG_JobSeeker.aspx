@@ -88,6 +88,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table>
         <tr>
+            <td>Profile Picture</td>
+            <td>
+                <asp:FileUpload ID="imgProfile" runat="server"></asp:FileUpload></td>
+        </tr>
+
+        <tr>
             <td>Name :</td>
             <td>
                 <asp:TextBox ID="textName" runat="server"></asp:TextBox></td>
@@ -115,6 +121,11 @@
             <td>
                 <asp:DropDownList ID="ddlcourse" runat="server"></asp:DropDownList>
             </td>
+        </tr>
+
+        <tr>
+            <td>Job Profile</td>
+            <td><asp:DropDownList ID="ddlregjp" runat="server"></asp:DropDownList></td>
         </tr>
 
         <tr>

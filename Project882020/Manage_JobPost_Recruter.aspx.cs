@@ -24,7 +24,7 @@ namespace Project882020
         public void BindManageJobPost()
         {
             con.Open();
-            SqlCommand com = new SqlCommand("jobpostprocedure", con);
+            SqlCommand com = new SqlCommand("procjobpost", con);
             com.CommandType = CommandType.StoredProcedure;
             com.Parameters.AddWithValue("@action", "display_recruter");
             com.Parameters.AddWithValue("@compnayid", Session["r_id"]);
@@ -33,11 +33,8 @@ namespace Project882020
             da.Fill(dt);
             com.ExecuteNonQuery();
             con.Close();
-            if (dt.Rows.Count > 0)
-            {
-                gv_Jobpost_Rec.DataSource = dt;
-                gv_Jobpost_Rec.DataBind();
-            }
+            gv_Jobpost_Rec.DataSource = dt;
+            gv_Jobpost_Rec.DataBind();
         }
 
         
