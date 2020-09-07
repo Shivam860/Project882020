@@ -51,6 +51,7 @@ namespace Project882020
             con.Close();
             if (dt.Rows.Count > 0)
             {
+                ViewState["image"] = dt.Rows[0]["pimage"].ToString();
                 textName.Text = dt.Rows[0]["name"].ToString();
                 rblgender.SelectedValue = dt.Rows[0]["gender"].ToString();
                 textEmail.Text = dt.Rows[0]["email"].ToString();
@@ -63,6 +64,7 @@ namespace Project882020
                 BindCity();
                 textpass.Text = dt.Rows[0]["password"].ToString();
                 ddlcity.SelectedValue = dt.Rows[0]["city"].ToString();
+                ddlregjp.SelectedValue = dt.Rows[0]["jobProfile"].ToString();
                 btn_submit.Text = "Update";
             }
             
@@ -192,11 +194,11 @@ namespace Project882020
         
         protected void btn_submit_Click(object sender, EventArgs e)
         {
-
+            string FN = "";
             if (btn_submit.Text == "Submit")
             {
-                string FN = "";
-                FN = Path.GetFileName(imgProfile.PostedFile.FileName);
+
+                FN = DateTime.Now.Ticks.ToString() + Path.GetFileName(imgProfile.PostedFile.FileName);
                 imgProfile.SaveAs(Server.MapPath("Profile_Image" + "//" + FN));
 
                 con.Open();
@@ -227,6 +229,9 @@ namespace Project882020
             }
             else if (btn_submit.Text == "Update")
             {
+                FN = Path.GetFileName(imgProfile.PostedFile.FileName);
+                
+
                 con.Open();
                 SqlCommand com = new SqlCommand("commonprocedure", con);
                 com.CommandType = CommandType.StoredProcedure;
@@ -241,6 +246,18 @@ namespace Project882020
                 com.Parameters.AddWithValue("@jobProfile", ddlregjp.SelectedValue);
                 com.Parameters.AddWithValue("@password", textpass.Text);
                 com.Parameters.AddWithValue("@city", ddlcity.SelectedValue);
+                if(FN == "")
+                {
+                    com.Parameters.AddWithValue("@pimage", ViewState["image"]);
+                }
+                else
+                {
+                    FN = DateTime.Now.Ticks.ToString() + FN;
+                    com.Parameters.AddWithValue("@pimage", FN);
+                    imgProfile.SaveAs(Server.MapPath("Profile_Image" + "//" + FN));
+                    File.Delete(Server.MapPath("Profile_Image" + "//" + ViewState["image"]));
+                }
+          
                 int i = com.ExecuteNonQuery();
                 con.Close();
                 if (i > 0)

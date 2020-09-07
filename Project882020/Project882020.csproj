@@ -70,6 +70,7 @@
     <Content Include="ApplyForm.aspx" />
     <Content Include="Change_Password_joobseeker.aspx" />
     <Content Include="Change_Password_Recruter.aspx" />
+    <Content Include="Display_Company_Info.aspx" />
     <Content Include="Footer.ascx" />
     <Content Include="Header.ascx" />
     <Content Include="HomePage.aspx" />
@@ -132,6 +133,13 @@
     </Compile>
     <Compile Include="Change_Password_Recruter.aspx.designer.cs">
       <DependentUpon>Change_Password_Recruter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Display_Company_Info.aspx.cs">
+      <DependentUpon>Display_Company_Info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Display_Company_Info.aspx.designer.cs">
+      <DependentUpon>Display_Company_Info.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home_admin.aspx.cs">
       <DependentUpon>Home_admin.aspx</DependentUpon>

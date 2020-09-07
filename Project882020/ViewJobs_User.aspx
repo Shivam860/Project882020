@@ -5,6 +5,10 @@
             document.getElementById('iframe_pop').src = 'ApplyForm.aspx?JID=' + jp_id;
             $('#div_overlay').fadeIn(500); $('#div_popup').fadeIn(500);
         }
+        function Display_Company_Info(r_id) {
+            document.getElementById('iframe_pop').src = 'Display_Company_Info.aspx?JID=' + r_id;
+            $('#div_overlay').fadeIn(500); $('#div_popup').fadeIn(500);
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -25,7 +29,7 @@
                     <Columns>
                         <asp:TemplateField HeaderText="Company Name">
                             <ItemTemplate>
-                                <%#Eval("r_cname") %>
+                                <a href="javascript:void(0);"  onclick="Display_Company_Info('<%#Eval("r_id") %>')"><%#Eval("r_cname") %></a>
                             </ItemTemplate>
                         </asp:TemplateField>
 
@@ -61,7 +65,7 @@
 
                         <asp:TemplateField>
                                 <ItemTemplate>
-                                    <a href="javascript:void(0);" onclick="ApplyForm('<%#Eval("jp_id") %>')">Apply</a>
+                                    <a href="javascript:void(0);"  onclick="ApplyForm('<%#Eval("jp_id") %>')">Apply</a>
                                 </ItemTemplate>
                             </asp:TemplateField>
 
@@ -88,6 +92,16 @@
     <div style="overflow:auto;width:500px;height:300px;background:white;">
     <div style="float:right"><a href="javascript:void(0);" onclick="$('#div_overlay').fadeOut(1000);$('#div_popup').fadeOut(1000);">close</a></div>
     <iframe id="iframe_pop" src="ApplyForm.aspx" style="border:none" width="500px" height="300px"></iframe>
+    </div></center>
+    </div>
+
+     <%--------------------------popup Info----------------------------%>
+    <div id="div_overlay" style="position: fixed; left: 0px; top: 0px; right: 0px; bottom: 0px; background: black; opacity: 0.2; display: none"></div>
+    <div id="div_popup" style="position: fixed; display: none; left: 0px; top: 150px; right: 0px; bottom: 0px;">
+        <center>
+    <div style="overflow:auto;width:500px;height:300px;background:white;">
+    <div style="float:right"><a href="javascript:void(0);" onclick="$('#div_overlay').fadeOut(1000);$('#div_popup').fadeOut(1000);">close</a></div>
+    <iframe id="iframe_pop" src="Display_Company_Info.aspx" style="border:none" width="500px" height="300px"></iframe>
     </div></center>
     </div>
 </asp:Content>
